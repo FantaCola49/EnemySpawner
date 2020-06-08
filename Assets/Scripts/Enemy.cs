@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Class needs to identificate enemy
-    void Start()
+    private void Start()
     {
         
     }

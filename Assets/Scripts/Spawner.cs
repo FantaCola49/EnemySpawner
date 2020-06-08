@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     private Transform[] _spawnPoint;
     private float _spawnBrake = 2f;
 
-    void Start()
+    private void Start()
     {
         _spawnPoint = new Transform[_allSpawnDots.childCount];
 
@@ -19,10 +19,10 @@ public class Spawner : MonoBehaviour
             _spawnPoint[i] = _allSpawnDots.GetChild(i); 
         }
 
-        StartCoroutine(EnemySpawn());
+        StartCoroutine(SpawnEnemies());
     }
 
-    private IEnumerator EnemySpawn()
+    private IEnumerator SpawnEnemies()
     {
         for (int SpawnIndex = 0; SpawnIndex < _spawnPoint.Length; SpawnIndex++)
         {
@@ -30,6 +30,6 @@ public class Spawner : MonoBehaviour
             Debug.Log("Сгенерирован враг");
             yield return new WaitForSeconds(_spawnBrake);
         }
-        StartCoroutine(EnemySpawn());
+        StartCoroutine(SpawnEnemies());
     }
 }
